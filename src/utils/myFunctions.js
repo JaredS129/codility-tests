@@ -23,4 +23,30 @@ module.exports = {
     }
     return newArray;
   },
+  oddOccurancesInArray: (A) => {
+    if (A.length < 1) {
+      return "please provide an array with at least one element";
+    }
+    if (A.length > 1000000) {
+      return "please provide an array with less than 1000000 elements";
+    }
+    if (!Array.isArray(A)) {
+      return "please provide an array input";
+    }
+
+    let sortedArray = A.sort(function (a, b) {
+      return a - b;
+    });
+
+    let result;
+
+    for (let i = 0; i < sortedArray.length; i = i + 2) {
+      if (sortedArray[i] - sortedArray[i + 1] !== 0) {
+        result = sortedArray[i];
+        break;
+      }
+    }
+
+    return result;
+  },
 };
