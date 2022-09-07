@@ -1,6 +1,6 @@
 const functionRepository = require("./myFunctions");
 
-const { cyclicRotation, oddOccurancesInArray } = functionRepository;
+const { cyclicRotation, oddOccurancesInArray, frogJump } = functionRepository;
 
 // describe("cyclicRotation", () => {
 //   it("should output an array cycled right 3 times", () => {
@@ -82,3 +82,23 @@ const { cyclicRotation, oddOccurancesInArray } = functionRepository;
 //   });
 // });
 
+describe("frogJump", () => {
+  it("should return 3", () => {
+    expect(frogJump(10, 85, 30)).toEqual(3);
+  });
+  it("should return 1", () => {
+    expect(frogJump(10, 85, 90)).toEqual(1);
+  });
+  it("should return 1 if Y is the frog lands on D", () => {
+    expect(frogJump(10, 85, 75)).toEqual(1);
+  });
+  it("should return 2 if the frog lands 1 short of D", () => {
+    expect(frogJump(10, 85, 74)).toEqual(2);
+  });
+  it("should return 100 if Y the frog only jumps 1 at a time", () => {
+    expect(frogJump(10, 110, 1)).toEqual(100);
+  });
+  it("should return 1 if the frog starts close to Y", () => {
+    expect(frogJump(109, 110, 1)).toEqual(1);
+  });
+});

@@ -4,13 +4,13 @@ import React, { useState, useEffect } from "react";
 
 const functionRepository = require("./utils/myFunctions");
 
-const { cyclicRotation, oddOccurancesInArray } = functionRepository;
+const { cyclicRotation, oddOccurancesInArray, frogJump } = functionRepository;
 
 function App() {
   const [output, setOutput] = useState();
 
   useEffect(() => {
-    setOutput(oddOccurancesInArray());
+    setOutput(frogJump());
   }, [output]);
 
   return (

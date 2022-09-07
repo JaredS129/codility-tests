@@ -49,4 +49,8 @@ module.exports = {
 
     return result;
   },
+  frogJump: (X, Y, D) => {
+    const jumps = (Y - X) / D;
+    return Math.ceil(jumps);
+  },
 };
