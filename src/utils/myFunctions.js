@@ -53,4 +53,16 @@ module.exports = {
     const jumps = (Y - X) / D;
     return Math.ceil(jumps);
   },
+  permMissingElem: (A) => {
+    if (A.length === 0) {
+      return 1;
+    }
+    const arraySum = A.reduce((total, num) => {
+      return total + num;
+    });
+    const sumWithNoneMissing = ((A.length + 1) * (A.length + 2)) / 2;
+    const result = sumWithNoneMissing - arraySum;
+
+    return result;
+  },
 };
