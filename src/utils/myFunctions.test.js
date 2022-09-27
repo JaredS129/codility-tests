@@ -1,7 +1,12 @@
 const functionRepository = require("./myFunctions");
 
-const { cyclicRotation, oddOccurancesInArray, frogJump, permMissingElem } =
-  functionRepository;
+const {
+  cyclicRotation,
+  oddOccurancesInArray,
+  frogJump,
+  permMissingElem,
+  tapeEquilibrium,
+} = functionRepository;
 
 // describe("cyclicRotation", () => {
 //   it("should output an array cycled right 3 times", () => {
@@ -104,23 +109,30 @@ const { cyclicRotation, oddOccurancesInArray, frogJump, permMissingElem } =
 //   });
 // });
 
-describe("permMissingElem", () => {
-  it("should return 4", () => {
-    const myArray = [2, 3, 1, 5];
-    expect(permMissingElem(myArray)).toEqual(4);
-  });
-  it("should return 3", () => {
-    const myArray = [2, 4, 1, 5, 6, 8, 7, 10, 9];
-    expect(permMissingElem(myArray)).toEqual(3);
-  });
-  it("if an empty array is given, return 1", () => {
-    const myArray = [];
-    expect(permMissingElem(myArray)).toEqual(1);
-  });
-  it("should return the other number if an array of length 1 is given", () => {
-    let myArray = [1];
-    expect(permMissingElem(myArray)).toEqual(2);
-    myArray = [2];
-    expect(permMissingElem(myArray)).toEqual(1);
+// describe("permMissingElem", () => {
+//   it("should return 4", () => {
+//     const myArray = [2, 3, 1, 5];
+//     expect(permMissingElem(myArray)).toEqual(4);
+//   });
+//   it("should return 3", () => {
+//     const myArray = [2, 4, 1, 5, 6, 8, 7, 10, 9];
+//     expect(permMissingElem(myArray)).toEqual(3);
+//   });
+//   it("if an empty array is given, return 1", () => {
+//     const myArray = [];
+//     expect(permMissingElem(myArray)).toEqual(1);
+//   });
+//   it("should return the other number if an array of length 1 is given", () => {
+//     let myArray = [1];
+//     expect(permMissingElem(myArray)).toEqual(2);
+//     myArray = [2];
+//     expect(permMissingElem(myArray)).toEqual(1);
+//   });
+// });
+
+describe("tapeQquilibrium", () => {
+  it("should output 1", () => {
+    const myArray = [3, 1, 2, 4, 3];
+    expect(tapeEquilibrium(myArray)).toEqual(1);
   });
 });
