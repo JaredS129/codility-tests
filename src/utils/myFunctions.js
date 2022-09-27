@@ -83,4 +83,22 @@ module.exports = {
     }
     return answer;
   },
+  frogRiverOne: (X, A) => {
+    let sum = (X * (X + 1)) / 2;
+    const hash = {};
+
+    for (let i = 0; i < A.length; i++) {
+      const element = A[i];
+
+      if (hash[element]) continue;
+      else {
+        hash[element] = true;
+        sum -= element;
+
+        if (sum === 0) return i;
+      }
+    }
+
+    return -1;
+  },
 };
