@@ -101,4 +101,21 @@ module.exports = {
 
     return -1;
   },
+  permCheck: (A) => {
+    const sum = (A.length * (A.length + 1)) / 2;
+    const highestNum = Math.max(...A);
+    const expectedSum = (highestNum * (highestNum + 1)) / 2;
+
+    if (sum !== expectedSum) {
+      return 0;
+    }
+
+    const noDuplicates = [...new Set(A)];
+
+    if (noDuplicates.length !== A.length) {
+      return 0;
+    }
+
+    return 1;
+  },
 };

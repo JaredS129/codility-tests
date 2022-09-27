@@ -7,6 +7,7 @@ const {
   permMissingElem,
   tapeEquilibrium,
   frogRiverOne,
+  permCheck,
 } = functionRepository;
 
 // describe("cyclicRotation", () => {
@@ -138,32 +139,43 @@ const {
 //   });
 // });
 
-describe("frogRiverOne", () => {
-  it("should output 6", () => {
-    const myArray = [1, 3, 1, 4, 2, 3, 5, 4];
-    expect(frogRiverOne(5, myArray)).toEqual(6);
+// describe("frogRiverOne", () => {
+//   it("should output 6", () => {
+//     const myArray = [1, 3, 1, 4, 2, 3, 5, 4];
+//     expect(frogRiverOne(5, myArray)).toEqual(6);
+//   });
+//   it("should output 6 v2", () => {
+//     const myArray = [1, 3, 1, 2, 3, 5, 4, 5];
+//     expect(frogRiverOne(5, myArray)).toEqual(6);
+//   });
+//   it("should output 3", () => {
+//     const myArray = [1, 3, 1, 2, 3, 5, 4, 5];
+//     expect(frogRiverOne(3, myArray)).toEqual(3);
+//   });
+//   it("should output 0", () => {
+//     const myArray = [1, 3, 1, 2, 3, 5, 4, 5];
+//     expect(frogRiverOne(1, myArray)).toEqual(0);
+//   });
+//   it("should output -1", () => {
+//     const myArray = [2, 3, 2, 3, 5, 4, 5];
+//     expect(frogRiverOne(1, myArray)).toEqual(-1);
+//   });
+//   it("should output -1 too", () => {
+//     const myArray = [1, 3, 1, 3, 5, 5, 1];
+//     expect(frogRiverOne(5, myArray)).toEqual(-1);
+//   });
+//   it("should output -1 v2", () => {
+//     expect(frogRiverOne(2, [1, 1, 1, 1])).toEqual(-1);
+//   });
+// });
+
+describe("permCheck", () => {
+  it("should return 1", () => {
+    const myArray = [4, 1, 3, 2];
+    expect(permCheck(myArray)).toEqual(1);
   });
-  it("should output 6", () => {
-    const myArray = [1, 3, 1, 2, 3, 5, 4, 5];
-    expect(frogRiverOne(5, myArray)).toEqual(6);
-  });
-  it("should output 3", () => {
-    const myArray = [1, 3, 1, 2, 3, 5, 4, 5];
-    expect(frogRiverOne(3, myArray)).toEqual(3);
-  });
-  it("should output 0", () => {
-    const myArray = [1, 3, 1, 2, 3, 5, 4, 5];
-    expect(frogRiverOne(1, myArray)).toEqual(0);
-  });
-  it("should output -1", () => {
-    const myArray = [2, 3, 2, 3, 5, 4, 5];
-    expect(frogRiverOne(1, myArray)).toEqual(-1);
-  });
-  it("should output -1 too", () => {
-    const myArray = [1, 3, 1, 3, 5, 5, 1];
-    expect(frogRiverOne(5, myArray)).toEqual(-1);
-  });
-  it("should output -1 v2", () => {
-    expect(frogRiverOne(2, [1, 1, 1, 1])).toEqual(-1);
+  it("should return 0", () => {
+    const myArray = [4, 1, 3];
+    expect(permCheck(myArray)).toEqual(0);
   });
 });
