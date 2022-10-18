@@ -10,6 +10,7 @@ const {
   permCheck,
   maxCounters,
   sumOfProductPairs,
+  missingInteger,
 } = functionRepository;
 
 // describe("cyclicRotation", () => {
@@ -182,14 +183,14 @@ const {
 //   });
 // });
 
-describe("maxCounters", () => {
-  it("should return the final outcome of the counters accurately", () => {
-    const A = [3, 4, 4, 6, 1, 4, 4];
-    const N = 5;
-    const result = [3, 2, 2, 4, 2];
-    expect(maxCounters(N, A)).toEqual(result);
-  });
-});
+// describe("maxCounters", () => {
+//   it("should return the final outcome of the counters accurately", () => {
+//     const A = [3, 4, 4, 6, 1, 4, 4];
+//     const N = 5;
+//     const result = [3, 2, 2, 4, 2];
+//     expect(maxCounters(N, A)).toEqual(result);
+//   });
+// });
 
 // describe("sumOfProductPairs", () => {
 //   it("should output 11", () => {
@@ -213,3 +214,42 @@ describe("maxCounters", () => {
 //     expect(sumOfProductPairs(inputArray)).toEqual(result);
 //   });
 // });
+
+describe("missingInteger", () => {
+  it("should return 5", () => {
+    const A = [1, 3, 6, 4, 1, 2];
+    const result = 5;
+    expect(missingInteger(A)).toEqual(result);
+  });
+  it("should return 1", () => {
+    const A = [2];
+    const result = 1;
+    expect(missingInteger(A)).toEqual(result);
+  });
+  it("should return 2", () => {
+    const A = [1];
+    const result = 2;
+    expect(missingInteger(A)).toEqual(result);
+  });
+  it("should return 3", () => {
+    const A = [4, 1, 5, 6, 2];
+    const result = 3;
+    expect(missingInteger(A)).toEqual(result);
+  });
+  it("should return 101", () => {
+    let A = [];
+    for (let i = 0; i <= 100; i++) {
+      A.push(i);
+    }
+    for (let i = 102; i <= 200; i++) {
+      A.push(i);
+    }
+    const result = 101;
+    expect(missingInteger(A)).toEqual(result);
+  });
+  it("should return 1 if given extremes", () => {
+    let A = [-1000000, 1000000];
+    const result = 1;
+    expect(missingInteger(A)).toEqual(result);
+  });
+});

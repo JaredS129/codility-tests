@@ -152,4 +152,29 @@ module.exports = {
 
     return newArray.reduce((partialSum, a) => partialSum + a, 0);
   },
+  missingInteger: (A) => {
+    let sortedArray = A.filter((value) => value > 0);
+    if (sortedArray.length === 1 && A[0] === 1) {
+      return 2;
+    }
+    if (sortedArray.length === 1 && A[0] !== 1) {
+      return 1;
+    }
+    let value;
+    sortedArray = sortedArray.sort(function (a, b) {
+      return a - b;
+    });
+    sortedArray = [...new Set(sortedArray)];
+    if (sortedArray.length !== 1 && sortedArray[0] !== 1) {
+      return 1;
+    }
+    if (sortedArray.length !== 1 && sortedArray[0] === 1) {
+      let difference = 1;
+      for (let i = 0; difference === 1; i++) {
+        value = sortedArray[i] + 1;
+        difference = sortedArray[i + 1] - sortedArray[i];
+      }
+    }
+    return value;
+  },
 };
