@@ -118,4 +118,38 @@ module.exports = {
 
     return 1;
   },
+  maxCounters: (N, A) => {
+    let counters = new Array(N).fill(0);
+
+    let maxCounter = 0;
+
+    let maxToSet = 0;
+
+    for (let i = 0; i < A.length; i++) {
+      let X = A[i] - 1;
+
+      if (X === N) {
+        maxToSet = maxCounter;
+      } else if (0 <= X && X < N) {
+        counters[X] = Math.max(counters[X] + 1, maxToSet + 1);
+        maxCounter = Math.max(counters[X], maxCounter);
+      }
+    }
+    counters = counters.map((val) => Math.max(val, maxToSet));
+    return counters;
+  },
+  sumOfProductPairs: (A) => {
+    if (A.length <= 1) {
+      return 0;
+    }
+    let newArray = [];
+
+    for (let i = 1; i < A.length; i++) {
+      A.slice(i).forEach((pair) => {
+        newArray.push(A[i - 1] * pair);
+      });
+    }
+
+    return newArray.reduce((partialSum, a) => partialSum + a, 0);
+  },
 };

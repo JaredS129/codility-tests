@@ -8,6 +8,8 @@ const {
   tapeEquilibrium,
   frogRiverOne,
   permCheck,
+  maxCounters,
+  sumOfProductPairs,
 } = functionRepository;
 
 // describe("cyclicRotation", () => {
@@ -169,13 +171,45 @@ const {
 //   });
 // });
 
-describe("permCheck", () => {
-  it("should return 1", () => {
-    const myArray = [4, 1, 3, 2];
-    expect(permCheck(myArray)).toEqual(1);
-  });
-  it("should return 0", () => {
-    const myArray = [4, 1, 3];
-    expect(permCheck(myArray)).toEqual(0);
+// describe("permCheck", () => {
+//   it("should return 1", () => {
+//     const myArray = [4, 1, 3, 2];
+//     expect(permCheck(myArray)).toEqual(1);
+//   });
+//   it("should return 0", () => {
+//     const myArray = [4, 1, 3];
+//     expect(permCheck(myArray)).toEqual(0);
+//   });
+// });
+
+describe("maxCounters", () => {
+  it("should return the final outcome of the counters accurately", () => {
+    const A = [3, 4, 4, 6, 1, 4, 4];
+    const N = 5;
+    const result = [3, 2, 2, 4, 2];
+    expect(maxCounters(N, A)).toEqual(result);
   });
 });
+
+// describe("sumOfProductPairs", () => {
+//   it("should output 11", () => {
+//     const inputArray = [1, 2, 3];
+//     const result = 11;
+//     expect(sumOfProductPairs(inputArray)).toEqual(result);
+//   });
+//   it("should output 140", () => {
+//     const inputArray = [2, 4, 6, 8];
+//     const result = 140;
+//     expect(sumOfProductPairs(inputArray)).toEqual(result);
+//   });
+//   it("should output 0 if given an empty array", () => {
+//     const inputArray = [];
+//     const result = 0;
+//     expect(sumOfProductPairs(inputArray)).toEqual(result);
+//   });
+//   it("should output 0 if given an array with one value", () => {
+//     const inputArray = [5];
+//     const result = 0;
+//     expect(sumOfProductPairs(inputArray)).toEqual(result);
+//   });
+// });
