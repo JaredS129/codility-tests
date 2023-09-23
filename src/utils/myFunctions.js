@@ -177,4 +177,158 @@ module.exports = {
     }
     return value;
   },
+  nByNMatrix: (matrix) => {
+    // const hasNegativeNumber = (row) => row.some((item) => item <= 0);
+
+    // const hasNumberGreaterThanLength = (row, length) =>
+    //   row.some((item) => item > length);
+
+    // const hasUniqueIntegers = (row, length) => {
+    //   const uniqueIntegersInRow = [...new Set(row)];
+    //   return uniqueIntegersInRow.length === length;
+    // };
+
+    // const findDuplicateInColumns = (A, row, originalRowIndex) => {
+    //   return row.some((integer, index) =>
+    //     A.some(
+    //       (otherRow, rowIndex) =>
+    //         rowIndex !== originalRowIndex && otherRow[index] === integer
+    //     )
+    //   );
+    // };
+
+    // const rowSum = (row) =>
+    //   row.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+    // const isOutputValid = (A) => {
+    //   let output = true;
+    //   let previousRowSum = null;
+
+    //   for (let [originalRowIndex, row] of A.entries()) {
+    //     const uniqueIntegersInRow = [...new Set(row)];
+
+    //     if (hasNegativeNumber(row)) {
+    //       console.log("number found less than 0");
+    //       output = false;
+    //     }
+
+    //     if (hasNumberGreaterThanLength(uniqueIntegersInRow, A.length)) {
+    //       console.log("number found greater than array length");
+    //       output = false;
+    //     }
+
+    //     if (!hasUniqueIntegers(row, A.length)) {
+    //       console.log("row length not equal to array length");
+    //       output = false;
+    //     }
+
+    //     if (findDuplicateInColumns(A, uniqueIntegersInRow, originalRowIndex)) {
+    //       console.log(`duplicate number found`);
+    //       output = false;
+    //     }
+
+    //     const sumOfRow = rowSum(uniqueIntegersInRow);
+
+    //     if (previousRowSum !== null && previousRowSum !== sumOfRow) {
+    //       output = false;
+    //     }
+
+    //     previousRowSum = sumOfRow;
+    //   }
+
+    //   return output;
+    // };
+    // return isOutputValid(A);
+
+    const n = matrix.length;
+
+    for (let i = 0; i < n; i++) {
+      let rowSet = new Set();
+      let colSet = new Set();
+
+      for (let j = 0; j < n; j++) {
+        if (
+          matrix[i][j] < 1 ||
+          matrix[i][j] > n ||
+          matrix[j][i] < 1 ||
+          matrix[j][i] > n
+        ) {
+          return false;
+        }
+
+        rowSet.add(matrix[i][j]);
+        colSet.add(matrix[j][i]);
+      }
+
+      if (rowSet.size !== n || colSet.size !== n) {
+        return false;
+      }
+    }
+
+    return true;
+  },
+  baseballGame: (ops) => {
+    try {
+      let score = [];
+      for (let i = 0; i < ops.length; i++) {
+        if (!isNaN(Number(ops[i]))) {
+          score.push(parseInt(ops[i]));
+          console.log(score);
+          continue;
+        }
+        switch (ops[i]) {
+          case "D":
+            score.push(score[score.length - 1] * 2);
+            console.log(score);
+            continue;
+          case "+":
+            score.push(score[score.length - 1] + score[score.length - 2]);
+            console.log(score);
+            continue;
+          case "C":
+            score.pop();
+            console.log(score);
+            continue;
+          default:
+            return "Invalid input";
+        }
+      }
+      return score.reduce((a, b) => a + b);
+    } catch (error) {
+      return error;
+    }
+  },
+  validParentheses: (s) => {
+    // let stack = [];
+    // let map = {
+    //   ")": "(",
+    //   "}": "{",
+    //   "]": "[",
+    // };
+
+    // for (let char of s) {
+    //   if (map[char]) {
+    //     let topElement = stack.length === 0 ? "#" : stack.pop();
+    //     if (map[char] !== topElement) {
+    //       return "invalid";
+    //     }
+    //   } else {
+    //     stack.push(char);
+    //   }
+    // }
+
+    // return stack.length === 0 ? "valid" : "invalid";
+
+    let workingString = s;
+    do {
+      let initialLength = workingString.length;
+      workingString = workingString.replace("()", "");
+      workingString = workingString.replace("{}", "");
+      workingString = workingString.replace("[]", "");
+      if (initialLength === workingString.length) {
+        return "invalid";
+      }
+    } while (workingString.length > 0);
+    return "valid";
+  },
 };

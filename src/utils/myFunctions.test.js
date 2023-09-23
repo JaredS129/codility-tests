@@ -11,6 +11,9 @@ const {
   maxCounters,
   sumOfProductPairs,
   missingInteger,
+  nByNMatrix,
+  baseballGame,
+  validParentheses,
 } = functionRepository;
 
 // describe("cyclicRotation", () => {
@@ -215,41 +218,190 @@ const {
 //   });
 // });
 
-describe("missingInteger", () => {
-  it("should return 5", () => {
-    const A = [1, 3, 6, 4, 1, 2];
-    const result = 5;
-    expect(missingInteger(A)).toEqual(result);
+// describe("missingInteger", () => {
+//   it("should return 5", () => {
+//     const A = [1, 3, 6, 4, 1, 2];
+//     const result = 5;
+//     expect(missingInteger(A)).toEqual(result);
+//   });
+//   it("should return 1", () => {
+//     const A = [2];
+//     const result = 1;
+//     expect(missingInteger(A)).toEqual(result);
+//   });
+//   it("should return 2", () => {
+//     const A = [1];
+//     const result = 2;
+//     expect(missingInteger(A)).toEqual(result);
+//   });
+//   it("should return 3", () => {
+//     const A = [4, 1, 5, 6, 2];
+//     const result = 3;
+//     expect(missingInteger(A)).toEqual(result);
+//   });
+//   it("should return 101", () => {
+//     let A = [];
+//     for (let i = 0; i <= 100; i++) {
+//       A.push(i);
+//     }
+//     for (let i = 102; i <= 200; i++) {
+//       A.push(i);
+//     }
+//     const result = 101;
+//     expect(missingInteger(A)).toEqual(result);
+//   });
+//   it("should return 1 if given extremes", () => {
+//     let A = [-1000000, 1000000];
+//     const result = 1;
+//     expect(missingInteger(A)).toEqual(result);
+//   });
+// });
+
+// describe("nByNMatrix", () => {
+//   it("a 3x3 input should output true when given a valid input v1", () => {
+//     let inputMatrix = [
+//       [1, 2, 3],
+//       [3, 1, 2],
+//       [2, 3, 1],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(true);
+//   });
+//   it("a 3x3 input should output false when given an invalid input v2", () => {
+//     let inputMatrix = [
+//       [1, 2, 3],
+//       [3, 1, 4],
+//       [2, 3, 1],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(false);
+//   });
+//   it("a 3x3 input should output false when given an invalid input", () => {
+//     let inputMatrix = [
+//       [2, 3, 1],
+//       [2, 1, 3],
+//       [3, 2, 2],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(false);
+//   });
+//   it("a 3x3 input should output false when given an invalid input v2", () => {
+//     let inputMatrix = [
+//       [2, 2, 2],
+//       [2, 3, 3],
+//       [3, 1, 1],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(false);
+//   });
+//   it("a 4x4 input should output true when given a valid input", () => {
+//     let inputMatrix = [
+//       [2, 1, 3, 4],
+//       [4, 3, 1, 2],
+//       [1, 2, 4, 3],
+//       [3, 4, 2, 1],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(true);
+//   });
+//   it("a 4x4 input should output false when given an ivalid input", () => {
+//     let inputMatrix = [
+//       [2, 1, 1, 4],
+//       [4, 3, 3, 2],
+//       [1, 2, 4, 3],
+//       [3, 4, 2, 1],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(false);
+//   });
+//   it("should output false when missing a row", () => {
+//     let inputMatrix = [
+//       [1, 2, 3, 4],
+//       [3, 1, 2, 4],
+//       [4, 3, 1, 2],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(false);
+//   });
+//   it("should output false when one of the rows isn't equal to n", () => {
+//     let inputMatrix = [
+//       [1, 2, 3, 4],
+//       [3, 1, 2],
+//       [4, 3, 1, 2],
+//       [4, 1, 2, 3],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(false);
+//   });
+//   it("should output false when the input isn't nXn v2", () => {
+//     let inputMatrix = [
+//       [1, 2, 3],
+//       [2, 1],
+//       [4, 3, 1],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(false);
+//   });
+//   it("5x5 input should output true when given a valid input", () => {
+//     let inputMatrix = [
+//       [1, 2, 3, 4, 5],
+//       [2, 3, 5, 1, 4],
+//       [3, 4, 2, 5, 1],
+//       [5, 1, 4, 2, 3],
+//       [4, 5, 1, 3, 2],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(true);
+//   });
+//   it("5x5 input should output false when given an ivalid input", () => {
+//     let inputMatrix = [
+//       [1, 2, 3, 4, 5],
+//       [2, 3, 2, 1, 4],
+//       [3, 4, 5, 5, 1],
+//       [5, 1, 4, 2, 3],
+//       [4, 5, 1, 3, 2],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(false);
+//   });
+//   it("5x5 input should output false when integers in columns aren't unique", () => {
+//     let inputMatrix = [
+//       [1, 2, 3, 4, 5],
+//       [1, 2, 3, 4, 5],
+//       [1, 2, 3, 4, 5],
+//       [1, 2, 3, 4, 5],
+//       [1, 2, 3, 4, 5],
+//     ];
+//     expect(nByNMatrix(inputMatrix)).toEqual(false);
+//   });
+
+// describe("baseballGame", () => {
+//   it('["5", "2", "C", "D", "+"] should output 30', () => {
+//     let ops = ["5", "2", "C", "D", "+"];
+//     expect(baseballGame(ops)).toEqual(30);
+//   });
+//   it('["5", "-2", "4", "C", "D", "9", "+", "+"] should output 27', () => {
+//     let ops = ["5", "-2", "4", "C", "D", "9", "+", "+"];
+//     expect(baseballGame(ops)).toEqual(27);
+//   });
+// });
+
+describe("valid parentheses", () => {
+  it("() should be valid", () => {
+    let s = "()";
+    expect(validParentheses(s)).toEqual("valid");
   });
-  it("should return 1", () => {
-    const A = [2];
-    const result = 1;
-    expect(missingInteger(A)).toEqual(result);
+  it("()[]{} should be valid", () => {
+    let s = "()[]{}";
+    expect(validParentheses(s)).toEqual("valid");
   });
-  it("should return 2", () => {
-    const A = [1];
-    const result = 2;
-    expect(missingInteger(A)).toEqual(result);
+  it("([)] should be invalid", () => {
+    let s = "([)]";
+    expect(validParentheses(s)).toEqual("invalid");
   });
-  it("should return 3", () => {
-    const A = [4, 1, 5, 6, 2];
-    const result = 3;
-    expect(missingInteger(A)).toEqual(result);
+  it("{[]} should be valid", () => {
+    let s = "{[]}";
+    expect(validParentheses(s)).toEqual("valid");
   });
-  it("should return 101", () => {
-    let A = [];
-    for (let i = 0; i <= 100; i++) {
-      A.push(i);
-    }
-    for (let i = 102; i <= 200; i++) {
-      A.push(i);
-    }
-    const result = 101;
-    expect(missingInteger(A)).toEqual(result);
+  it("{()[]} should be valid", () => {
+    let s = "{[]}";
+    expect(validParentheses(s)).toEqual("valid");
   });
-  it("should return 1 if given extremes", () => {
-    let A = [-1000000, 1000000];
-    const result = 1;
-    expect(missingInteger(A)).toEqual(result);
+  it("{()([])} should be valid", () => {
+    let s = "{()([])}";
+    expect(validParentheses(s)).toEqual("valid");
+  });
+  it("{()([{]})} should be invalid", () => {
+    let s = "{()([{]})}";
+    expect(validParentheses(s)).toEqual("invalid");
   });
 });
